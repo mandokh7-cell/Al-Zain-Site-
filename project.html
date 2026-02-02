@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Projects | Al-Zain</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* -----------------------------------------------------------
+           VARIABLES
+           ----------------------------------------------------------- */
+        :root {
+            --bg-body: #F3F5F4;          
+            --bg-card: #FFFFFF;    
+            --text-main: #111816;        
+            --text-secondary: #4a5550;   
+            --green-brand: #1A3C34;      
+            --green-light: #2C5F52;
+            --radius-xl: 32px;
+            --radius-pill: 100px;
+            --shadow-card: 0 10px 40px rgba(0,0,0,0.05);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            
+            /* Brand Colors for Contact Glow */
+            --whatsapp: #25D366;
+            --linkedin: #0077B5;
+            --instagram: #E1306C;
+            --facebook: #1877F2;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Manrope', 'Cairo', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            direction: rtl;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .en-font { font-family: 'Manrope', sans-serif; direction: ltr; }
+        a { text-decoration: none; color: inherit; }
+
+        /* -----------------------------------------------------------
+           HEADER
+           ----------------------------------------------------------- */
+        .page-header-custom {
+            background-color: var(--green-brand);
+            padding: 25px 5% 50px; 
+            position: relative;
+            border-bottom-left-radius: 20px; 
+            border-bottom-right-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+
+        .nav-container {
+            display: flex; justify-content: space-between; align-items: center;
+            max-width: 1400px; margin: 0 auto 25px; width: 100%;
+        }
+
+        .logo-white { font-weight: 900; font-size: 26px; color: #fff; cursor: pointer; transition: 0.3s; }
+        .logo-white:hover { opacity: 0.8; }
+
+        .btn-close-custom {
+            background-color: rgba(255,255,255,0.1);
+            color: #fff; padding: 8px 22px; border-radius: var(--radius-pill);
+            font-weight: 700; font-size: 13px; border: 1px solid rgba(255,255,255,0.2);
+            cursor: pointer; transition: 0.3s;
+        }
+        .btn-close-custom:hover { background-color: #fff; color: var(--green-brand); }
+
+        .page-title-main { font-size: 32px; font-weight: 800; color: #fff; font-family: 'Manrope', sans-serif; }
+
+        /* -----------------------------------------------------------
+           PROJECTS GRID
+           ----------------------------------------------------------- */
+        .page-content { 
+            padding: 40px 5%; max-width: 1400px; margin: -25px auto 0; 
+            width: 100%; flex-grow: 1; position: relative; z-index: 5;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .prog-card-v2 {
+            background: var(--bg-card); border-radius: var(--radius-xl); padding: 15px;
+            display: flex; flex-direction: column; transition: var(--transition);
+            border: 1.5px solid rgba(26, 60, 52, 0.08); box-shadow: var(--shadow-card);
+        }
+        .prog-card-v2:hover {
+            transform: translateY(-10px);
+            border-color: rgba(26, 60, 52, 0.4);
+        }
+
+        /* --- Browser Bar with Blinking Dots --- */
+        .card-visual-wrapper {
+            position: relative; border-radius: 20px; overflow: hidden; background: #f0f0f0; margin-bottom: 20px;
+        }
+        .browser-bar {
+            background: #e9eceb; height: 22px; display: flex; align-items: center; padding: 0 12px; gap: 6px;
+        }
+        
+        /* تأثير النقاط التي تنور وتطفي */
+        .browser-dot { width: 6px; height: 6px; border-radius: 50%; opacity: 0.5; }
+
+        @keyframes blink-glow {
+            0%, 100% { opacity: 0.4; transform: scale(1); filter: brightness(1); }
+            50% { opacity: 1; transform: scale(1.15); filter: brightness(1.3); box-shadow: 0 0 8px currentColor; }
+        }
+
+        .browser-dot:nth-child(1) { background: #FF5F56; color: #FF5F56; animation: blink-glow 2s infinite ease-in-out; }
+        .browser-dot:nth-child(2) { background: #FFBD2E; color: #FFBD2E; animation: blink-glow 2s infinite ease-in-out 0.4s; }
+        .browser-dot:nth-child(3) { background: #27C93F; color: #27C93F; animation: blink-glow 2s infinite ease-in-out 0.8s; }
+
+        .card-image-box { height: 210px; overflow: hidden; background: #f9f9f9; }
+        .card-image-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+
+        .card-body { padding: 5px; flex-grow: 1; text-align: right; }
+        .card-body h3 {
+            font-size: 20px; font-weight: 800; color: var(--green-brand); margin-bottom: 8px;
+            display: flex; justify-content: space-between; align-items: center; font-family: 'Manrope', sans-serif;
+        }
+        .type-tag { font-size: 10px; background: var(--bg-body); color: var(--text-secondary); padding: 3px 10px; border-radius: 20px; font-weight: 700; }
+        .card-body p { color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin-bottom: 20px; }
+
+        .card-actions { display: flex; gap: 10px; margin-top: auto; }
+        .btn-live {
+            flex: 2; background: var(--green-brand); color: #fff; padding: 12px; border-radius: 15px;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            font-weight: 700; font-size: 13px; transition: 0.3s;
+        }
+        .btn-live:hover { background: var(--green-light); }
+        .btn-download-sec {
+            flex: 1; background: #f0f3f2; color: var(--green-brand); padding: 12px; border-radius: 15px;
+            display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px;
+        }
+
+        /* -----------------------------------------------------------
+           CONTACT SECTION (SIDE-BY-SIDE & BRAND GLOW)
+           ----------------------------------------------------------- */
+        .contact-section { background: transparent; margin: 60px 0 40px; padding: 0 5%; text-align: center; }
+        .contact-section h2 { color: var(--green-brand); font-size: 32px; font-weight: 800; margin-bottom: 40px; font-family: 'Manrope', sans-serif; }
+        .contact-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; max-width: 1000px; margin: 0 auto; }
+        .contact-card {
+            background: #fff; border: 1.5px solid rgba(26, 60, 52, 0.12); padding: 16px 24px; border-radius: 20px;
+            color: var(--text-main); display: flex; align-items: center; gap: 12px; transition: 0.3s; min-width: 160px;
+            cursor: pointer; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .contact-card i {
+            font-size: 20px; width: 36px; height: 36px; background: #f0f7f4; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; color: var(--green-brand); transition: 0.3s;
+        }
+        .contact-card span { font-weight: 700; font-size: 14px; transition: 0.3s; }
+
+        /* Brand Glows on Hover/Active */
+        .card-whatsapp:hover, .card-whatsapp:active { border-color: var(--whatsapp); box-shadow: 0 0 15px rgba(37, 211, 102, 0.2); }
+        .card-whatsapp:hover i, .card-whatsapp:active i { background: var(--whatsapp); color: #fff; }
+        .card-whatsapp:hover span, .card-whatsapp:active span { color: var(--whatsapp); }
+
+        .card-linkedin:hover, .card-linkedin:active { border-color: var(--linkedin); box-shadow: 0 0 15px rgba(0, 119, 181, 0.2); }
+        .card-linkedin:hover i, .card-linkedin:active i { background: var(--linkedin); color: #fff; }
+        .card-linkedin:hover span, .card-linkedin:active span { color: var(--linkedin); }
+
+        .card-instagram:hover, .card-instagram:active { border-color: var(--instagram); box-shadow: 0 0 15px rgba(225, 48, 108, 0.2); }
+        .card-instagram:hover i, .card-instagram:active i { background: var(--instagram); color: #fff; }
+        .card-instagram:hover span, .card-instagram:active span { color: var(--instagram); }
+
+        .card-facebook:hover, .card-facebook:active { border-color: var(--facebook); box-shadow: 0 0 15px rgba(24, 119, 242, 0.2); }
+        .card-facebook:hover i, .card-facebook:active i { background: var(--facebook); color: #fff; }
+        .card-facebook:hover span, .card-facebook:active span { color: var(--facebook); }
+
+        footer { text-align: center; padding: 30px; color: #666; font-size: 13px; border-top: 1px solid #eee; margin-top: auto; }
+
+        /* Scroll Reveal */
+        .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; visibility: hidden; }
+        .reveal-visible { opacity: 1; transform: translateY(0); visibility: visible; }
+
+        /* -----------------------------------------------------------
+           MOBILE OPTIMIZATIONS
+           ----------------------------------------------------------- */
+        @media (max-width: 768px) {
+            .page-title-main { font-size: 26px; }
+            .projects-grid { grid-template-columns: 1fr; margin-left: 5px; margin-right: 5px; }
+            .contact-section h2 { font-size: 24px; margin-bottom: 30px; }
+            
+            .contact-grid { display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; gap: 8px; }
+            .contact-card { min-width: auto; flex: 1; padding: 12px 6px; flex-direction: column; gap: 6px; border-radius: 15px; }
+            .contact-card span { font-size: 9px; font-weight: 800; }
+            .contact-card i { width: 30px; height: 30px; font-size: 16px; border-radius: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header-custom">
+        <div class="nav-container">
+            <div class="logo-white en-font" onclick="window.location.href='https://al-zain.site'">𝐴𝑙-𝑍𝑎𝑖𝑛</div>
+            <button class="btn-close-custom en-font" onclick="window.location.href='https://al-zain.site'">HOME</button>
+        </div>
+        <h1 class="page-title-main reveal">Programming Projects</h1>
+    </header>
+
+    <main class="page-content">
+        <div class="projects-grid">
+            
+            <!-- Project 1: Daily Tasks -->
+            <div class="prog-card-v2 reveal">
+                <div class="card-visual-wrapper">
+                    <div class="browser-bar">
+                        <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
+                    </div>
+                    <div class="card-image-box">
+                        <img src="daily-tasks.jpg" alt="Daily Tasks" onerror="this.src='https://placehold.co/600x400/1A3C34/white?text=Daily+Tasks'">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="en-font">Daily Tasks <span class="type-tag">Web & APK</span></h3>
+                    <p>منصة ذكية لإدارة المهام اليومية، تدعم الويب وتطبيق Android & ios مع نظام تنبيهات وحفظ سحابي متطور.</p>
+                    <div class="card-actions">
+                        <a href="https://al-zain-tasks.netlify.app" target="_blank" class="btn-live en-font">LIVE PREVIEW</a>
+                        <a href="https://www.mediafire.com/file/afmr7a6plfdals9/Daily_tasks.apk/file" target="_blank" class="btn-download-sec en-font"><i class="fas fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Al-Zain Gold -->
+            <div class="prog-card-v2 reveal">
+                <div class="card-visual-wrapper">
+                    <div class="browser-bar">
+                        <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
+                    </div>
+                    <div class="card-image-box">
+                        <img src="alzain-gold.jpg" alt="Al-Zain Gold" onerror="this.src='https://placehold.co/600x400/1A3C34/white?text=Al-Zain+Gold'">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="en-font">Al-Zain Gold <span class="type-tag">Store</span></h3>
+                    <p>متجر إلكتروني متخصص في عرض أسعار والذهب بأسلوب عصري.</p>
+                    <div class="card-actions">
+                        <a href="https://al-zain-gold.netlify.app/" target="_blank" class="btn-live en-font" style="flex:1;">VISIT STORE</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Berger House -->
+            <div class="prog-card-v2 reveal">
+                <div class="card-visual-wrapper">
+                    <div class="browser-bar">
+                        <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
+                    </div>
+                    <div class="card-image-box">
+                        <img src="berger-house.jpg" alt="Berger House" onerror="this.src='https://placehold.co/600x400/1A3C34/white?text=Berger+House'">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="en-font">Berger House <span class="type-tag">Landing</span></h3>
+                    <p>تصميم صفحة هبوط خاصة بالمطاعم.</p>
+                    <div class="card-actions">
+                        <a href="https://bergerhouse.netlify.app/" target="_blank" class="btn-live en-font" style="flex:1;">PREVIEW</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: Medical Model -->
+            <div class="prog-card-v2 reveal">
+                <div class="card-visual-wrapper">
+                    <div class="browser-bar">
+                        <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
+                    </div>
+                    <div class="card-image-box">
+                        <img src="medical.jpg" alt="Medical Business" onerror="this.src='https://placehold.co/600x400/1A3C34/white?text=Medical+Business'">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="en-font">Medical Model <span class="type-tag">Business</span></h3>
+                    <p>نظام متكامل للخدمات الطبية يجمع بين البساطة في الواجهات والقوة في الوظائف التقنية.</p>
+                    <div class="card-actions">
+                        <a href="https://protofoli0.netlify.app/" target="_blank" class="btn-live en-font" style="flex:1;">PREVIEW</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5: Design Pro -->
+            <div class="prog-card-v2 reveal">
+                <div class="card-visual-wrapper">
+                    <div class="browser-bar">
+                        <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
+                    </div>
+                    <div class="card-image-box">
+                        <img src="design-pro.jpg" alt="Design Pro" onerror="this.src='https://placehold.co/600x400/1A3C34/white?text=Design+Pro'">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="en-font">Design Pro <span class="type-tag">Portfolio</span></h3>
+                    <p>منصة صُممت لمجال Graphic design مشابهة لتطبيق Adobe Photoshop.</p>
+                    <div class="card-actions">
+                        <a href="https://design-pro.netlify.app/" target="_blank" class="btn-live en-font" style="flex:1;">PREVIEW</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6: Al-Zain Old -->
+            <div class="prog-card-v2 reveal">
+                <div class="card-visual-wrapper">
+                    <div class="browser-bar">
+                        <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
+                    </div>
+                    <div class="card-image-box">
+                        <img src="old-version.jpg" alt="Al-Zain Old" onerror="this.src='https://placehold.co/600x400/1A3C34/white?text=Old+Version'">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="en-font">Al-Zain Old <span class="type-tag">Archive</span></h3>
+                    <p>أرشيف يضم النسخة السابقة من الموقع، يعرض رحلة التطور في التصميم والبرمجة.</p>
+                    <div class="card-actions">
+                        <a href="https://al-zain-old.netlify.app" target="_blank" class="btn-live en-font" style="flex:1;">OLD VERSION</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Updated Contact Section -->
+    <div class="contact-section reveal" id="contact">
+        <h2 class="en-font">Connect with Al-Zain</h2>
+        <div class="contact-grid en-font">
+            <a href="https://wa.me/201204971416" class="">
+                <i class=""></i>
+                <span>WhatsApp</span>
+            </a>
+            <a href="https://www.linkedin.com/in/mohamed-khald-09998b331" class="">
+                <i class=""></i>
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://www.instagram.com/mo7amedkhald" class="">
+                <i class=""></i>
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.facebook.com/mohamed.khald.781702" class="">
+                <i class=""></i>
+                <span>Facebook</span>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Mohamed Khald - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('reveal-visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
+

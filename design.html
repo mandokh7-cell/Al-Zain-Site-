@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphic Design Projects | Al-Zain</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* -----------------------------------------------------------
+           VARIABLES (SAME AS PROJECT.HTML)
+           ----------------------------------------------------------- */
+        :root {
+            --bg-body: #F3F5F4;          
+            --bg-card: #FFFFFF;    
+            --text-main: #111816;        
+            --text-secondary: #4a5550;   
+            --green-brand: #1A3C34;      
+            --green-light: #2C5F52;
+            --radius-xl: 32px;
+            --radius-pill: 100px;
+            --shadow-card: 0 10px 40px rgba(0,0,0,0.05);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            
+            /* Brand Colors for Contact Glow */
+            --whatsapp: #25D366;
+            --linkedin: #0077B5;
+            --instagram: #E1306C;
+            --facebook: #1877F2;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Manrope', 'Cairo', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            direction: rtl;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .en-font { font-family: 'Manrope', sans-serif; direction: ltr; }
+        a { text-decoration: none; color: inherit; }
+
+        /* -----------------------------------------------------------
+           HEADER
+           ----------------------------------------------------------- */
+        .page-header-custom {
+            background-color: var(--green-brand);
+            padding: 25px 5% 50px; 
+            position: relative;
+            border-bottom-left-radius: 20px; 
+            border-bottom-right-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+
+        .nav-container {
+            display: flex; justify-content: space-between; align-items: center;
+            max-width: 1400px; margin: 0 auto 25px; width: 100%;
+        }
+
+        .logo-white { font-weight: 900; font-size: 26px; color: #fff; cursor: pointer; transition: 0.3s; }
+        .logo-white:hover { opacity: 0.8; }
+
+        .btn-close-custom {
+            background-color: rgba(255,255,255,0.1);
+            color: #fff; padding: 8px 22px; border-radius: var(--radius-pill);
+            font-weight: 700; font-size: 13px; border: 1px solid rgba(255,255,255,0.2);
+            cursor: pointer; transition: 0.3s;
+        }
+        .btn-close-custom:hover { background-color: #fff; color: var(--green-brand); }
+
+        .page-title-main { font-size: 32px; font-weight: 800; color: #fff; font-family: 'Manrope', sans-serif; }
+
+        /* -----------------------------------------------------------
+           PROJECTS GRID (ADAPTED FOR DESIGN)
+           ----------------------------------------------------------- */
+        .page-content { 
+            padding: 40px 5%; max-width: 1400px; margin: -25px auto 0; 
+            width: 100%; flex-grow: 1; position: relative; z-index: 5;
+        }
+
+        .section-separator-title {
+            color: var(--green-brand);
+            font-size: 24px;
+            font-weight: 800;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(26, 60, 52, 0.1);
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .design-card {
+            background: var(--bg-card); border-radius: var(--radius-xl); padding: 15px;
+            display: flex; flex-direction: column; transition: var(--transition);
+            border: 1.5px solid rgba(26, 60, 52, 0.08); box-shadow: var(--shadow-card);
+            cursor: pointer;
+        }
+        .design-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(26, 60, 52, 0.4);
+        }
+
+        /* Simplified wrapper without browser dots for design */
+        .card-visual-wrapper {
+            position: relative; border-radius: 20px; overflow: hidden; background: #f0f0f0; margin-bottom: 15px;
+            height: 240px; /* Fixed height for consistency */
+        }
+        
+        .card-visual-wrapper img, .card-visual-wrapper video { 
+            width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; 
+        }
+        .design-card:hover .card-visual-wrapper img { transform: scale(1.05); }
+
+        /* Play Icon Overlay for Videos */
+        .play-overlay {
+            position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+            background: rgba(0,0,0,0.2); transition: 0.3s;
+        }
+        .play-icon {
+            width: 50px; height: 50px; background: rgba(255,255,255,0.9); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; color: var(--green-brand);
+            font-size: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .design-card:hover .play-overlay { background: rgba(0,0,0,0.1); }
+        .design-card:hover .play-icon { transform: scale(1.1); background: #fff; }
+
+        .card-body { padding: 5px; flex-grow: 1; text-align: right; }
+        .card-body h3 {
+            font-size: 18px; font-weight: 800; color: var(--green-brand); margin-bottom: 5px;
+            display: flex; justify-content: space-between; align-items: center; font-family: 'Manrope', sans-serif;
+        }
+        .type-tag { 
+            font-size: 10px; background: var(--bg-body); color: var(--text-secondary); 
+            padding: 4px 12px; border-radius: 20px; font-weight: 700; 
+        }
+
+        .card-actions { margin-top: 15px; }
+        .btn-view {
+            width: 100%; background: var(--bg-body); color: var(--green-brand); padding: 12px; border-radius: 15px;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            font-weight: 700; font-size: 13px; transition: 0.3s; border: 1px solid transparent;
+        }
+        .design-card:hover .btn-view { background: var(--green-brand); color: #fff; }
+
+        /* -----------------------------------------------------------
+           LIGHTBOX
+           ----------------------------------------------------------- */
+        .lightbox-modal {
+            position: fixed; inset: 0; background: rgba(17, 24, 22, 0.95); z-index: 6000; 
+            display: flex; align-items: center; justify-content: center; 
+            opacity: 0; pointer-events: none; transition: opacity 0.3s ease; padding: 20px;
+        }
+        .lightbox-modal.active { opacity: 1; pointer-events: auto; }
+        
+        .lightbox-content { 
+            max-width: 1000px; max-height: 90vh; width: 100%;
+            border-radius: 20px; overflow: hidden; position: relative; 
+            transform: scale(0.95); transition: transform 0.3s ease; 
+        }
+        .lightbox-modal.active .lightbox-content { transform: scale(1); }
+        
+        .lightbox-content img, .lightbox-content video { 
+            display: block; width: 100%; height: 100%; max-height: 85vh; object-fit: contain; 
+            background: #000; margin: 0 auto;
+        }
+        
+        .lightbox-close { 
+            position: absolute; top: 20px; right: 20px; width: 44px; height: 44px; 
+            border-radius: 50%; background: rgba(255,255,255,0.1); color: #fff; 
+            display: flex; align-items: center; justify-content: center; cursor: pointer; 
+            border: 1px solid rgba(255,255,255,0.2); transition: 0.3s; font-size: 20px; z-index: 6001; 
+        }
+        .lightbox-close:hover { background: #fff; color: var(--green-brand); transform: rotate(90deg); }
+
+        /* -----------------------------------------------------------
+           CONTACT SECTION (COPIED FROM PROJECT.HTML)
+           ----------------------------------------------------------- */
+        .contact-section { background: transparent; margin: 60px 0 40px; padding: 0 5%; text-align: center; }
+        .contact-section h2 { color: var(--green-brand); font-size: 32px; font-weight: 800; margin-bottom: 40px; font-family: 'Manrope', sans-serif; }
+        .contact-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; max-width: 1000px; margin: 0 auto; }
+        .contact-card {
+            background: #fff; border: 1.5px solid rgba(26, 60, 52, 0.12); padding: 16px 24px; border-radius: 20px;
+            color: var(--text-main); display: flex; align-items: center; gap: 12px; transition: 0.3s; min-width: 160px;
+            cursor: pointer; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .contact-card i {
+            font-size: 20px; width: 36px; height: 36px; background: #f0f7f4; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; color: var(--green-brand); transition: 0.3s;
+        }
+        .contact-card span { font-weight: 700; font-size: 14px; transition: 0.3s; }
+
+        /* Brand Glows on Hover */
+        .card-whatsapp:hover { border-color: var(--whatsapp); box-shadow: 0 0 15px rgba(37, 211, 102, 0.2); }
+        .card-whatsapp:hover i { background: var(--whatsapp); color: #fff; }
+        .card-whatsapp:hover span { color: var(--whatsapp); }
+
+        .card-linkedin:hover { border-color: var(--linkedin); box-shadow: 0 0 15px rgba(0, 119, 181, 0.2); }
+        .card-linkedin:hover i { background: var(--linkedin); color: #fff; }
+        .card-linkedin:hover span { color: var(--linkedin); }
+
+        .card-instagram:hover { border-color: var(--instagram); box-shadow: 0 0 15px rgba(225, 48, 108, 0.2); }
+        .card-instagram:hover i { background: var(--instagram); color: #fff; }
+        .card-instagram:hover span { color: var(--instagram); }
+
+        .card-facebook:hover { border-color: var(--facebook); box-shadow: 0 0 15px rgba(24, 119, 242, 0.2); }
+        .card-facebook:hover i { background: var(--facebook); color: #fff; }
+        .card-facebook:hover span { color: var(--facebook); }
+
+        footer { text-align: center; padding: 30px; color: #666; font-size: 13px; border-top: 1px solid #eee; margin-top: auto; }
+
+        /* Scroll Reveal */
+        .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; visibility: hidden; }
+        .reveal-visible { opacity: 1; transform: translateY(0); visibility: visible; }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .page-title-main { font-size: 26px; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .contact-section h2 { font-size: 24px; margin-bottom: 30px; }
+            .contact-grid { flex-wrap: wrap; justify-content: center; }
+            .contact-card { width: 48%; min-width: auto; flex-direction: column; padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header-custom">
+        <div class="nav-container">
+            <div class="logo-white en-font" onclick="window.location.href='https://al-zain.site'">𝐴𝑙-𝑍𝑎𝑖𝑛</div>
+            <button class="btn-close-custom en-font" onclick="window.location.href='https://al-zain.site'">HOME</button>
+        </div>
+        <h1 class="page-title-main reveal">Graphic Design Projects</h1>
+    </header>
+
+    <main class="page-content">
+        
+        <!-- Images Section -->
+        <h2 class="section-separator-title reveal en-font">Images</h2>
+        <div class="projects-grid" id="images-grid">
+            <!-- Will be populated by JS -->
+        </div>
+
+        <!-- Videos Section -->
+        <h2 class="section-separator-title reveal en-font">Video</h2>
+        <div class="projects-grid" id="videos-grid">
+             <!-- Will be populated by JS -->
+        </div>
+
+    </main>
+
+    <!-- Contact Section -->
+    <div class="contact-section reveal" id="contact">
+        <h2 class="en-font">Connect with Al-Zain</h2>
+        <div class="contact-grid en-font">
+            <a href="https://wa.me/201204971416" class="">
+                <i class=""></i>
+                <span>WhatsApp</span>
+            </a>
+            <a href="https://www.linkedin.com/in/mohamed-khald-09998b331" class=>
+                <i class=""></i>
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://www.instagram.com/mo7amedkhald" class="">
+                <i class=""></i>
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.facebook.com/mohamed.khald.781702" class="">
+                <i class=""></i>
+                <span>Facebook</span>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Mohamed Khald - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+        <div class="lightbox-content" id="lightboxContent"></div>
+    </div>
+
+    <script>
+       
+        // --- 2. Projects Slider Data Logic ---
+        const allProjects = [
+            { type: 'img', src: 'Al-Zain.jpg', title: 'Al-Zain', tag: 'Al-Zain' },
+            { type: 'vid', src: 'Mo.mp4', title: 'Veo3', tag: 'Al-Zain' },
+            { type: 'img', src: 'Big.jpg', title: 'Big Cola', tag:  'Al-Zain' },
+            { type: 'vid', src: 'Mo2.mp4', title: 'Veo3', tag: 'Al-Zain' },
+            { type: 'img', src: 'Maxi.jpg', title: 'Maxi', tag: 'Al-Zain ' },
+            { type: 'img', src: 'Muslim.jpg', title: 'Muslim', tag: 'Al-Zain' },
+            { type: 'img', src: 'Perfume.jpg', title: 'Perfume', tag: 'Al-Zain ' },
+            { type: 'vid', src: 'Mo3.mp4', title: 'Veo3', tag: 'Al-Zain' },
+            { type: 'img', src: 'Shawarma.jpg', title: 'Shawarma', tag: 'Al-Zain ' },
+            { type: 'img', src: 'Jakwar.jpg', title: 'Jakwar Social', tag: 'Al-Zain ' },
+            { type: 'vid', src: 'Mo4.mp4', title: 'Veo3', tag: 'Al-Zain' },
+            { type: 'img', src: 'IPhone.jpg', title: 'iPhone', tag: 'Al-Zain' },
+            { type: 'img', src: 'Day.jpg', title: ' Day', tag: 'Al-Zain' },
+            { type: 'vid', src: 'Mo6.mp4', title: 'veo3', tag: 'Al-Zain' },
+            { type: 'vid', src: 'Mo5.mp4', title: 'Veo3', tag: 'Al-Zain' },
+            { type: 'img', src: 'Mo3.jpg', title: 'Basatahalk', tag: 'Al-Zain' },
+            { type: 'img', src: 'Mo1.jpg', title: 'Basatahalk', tag: 'Al-Zain ' },
+            { type: 'img', src: 'Mo9.jpg', title: 'Basatahalk', tag: 'Al-Zain' },
+            { type: 'img', src: 'Mo76.png', title: 'Basatahalk', tag: 'Al-Zain' },
+            { type: 'img', src: 'Tarek.jpg', title: 'Mr. Genius in English', tag:  'Al-Zain' },
+            { type: 'img', src: 'Taroka.jpg', title: 'Mr. Genius in English', tag: 'Al-Zain' },
+            { type: 'img', src: 'magdy.jpg', title: 'Einstein', tag: 'Al-Zain ' },  
+           { type: 'img', src: 'abo1.jpg', title: 'Coffee', tag:  'Al-Zain' },
+            { type: 'img', src: 'abo2.jpg', title: 'Coffee', tag: 'Al-Zain' },
+            { type: 'img', src: 'abo3.jpg', title: 'Coffee', tag: 'Al-Zain ' },
+        ];
+
+        const imgGrid = document.getElementById('images-grid');
+        const vidGrid = document.getElementById('videos-grid');
+
+        // Function to render cards
+        function renderProjects() {
+            allProjects.forEach((item, index) => {
+                const isImg = item.type === 'img';
+                const visual = isImg 
+                    ? `<img src="${item.src}" onerror="this.src='https://placehold.co/600x400/1A3C34/white?text=${item.title.replace(' ', '+')}'">`
+                    : `<video src="${item.src}" muted onmouseover="this.play()" onmouseout="this.pause()"></video><div class="play-overlay"><div class="play-icon"><i class="fas fa-play"></i></div></div>`;
+                
+                const card = `
+                    <div class="design-card reveal" onclick="openLightbox(${index})">
+                        <div class="card-visual-wrapper">
+                            ${visual}
+                        </div>
+                        <div class="card-body">
+                            <h3 class="en-font">${item.title} <span class="type-tag">${item.tag}</span></h3>
+                            <div class="card-actions">
+                                <button class="btn-view en-font"><i class="fas fa-expand"></i> VIEW PROJECT</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                if (isImg) {
+                    imgGrid.innerHTML += card;
+                } else {
+                    vidGrid.innerHTML += card;
+                }
+            });
+        }
+
+        // Lightbox Logic
+        const lightboxModal = document.getElementById('lightboxModal');
+        const lightboxContent = document.getElementById('lightboxContent');
+
+        function openLightbox(index) {
+            let item = allProjects[index];
+            if (item.type === 'img') {
+                lightboxContent.innerHTML = `<img src="${item.src}" onerror="this.src='https://placehold.co/800x600/f5f5f5/333?text=Image+Error'">`;
+            } else {
+                lightboxContent.innerHTML = `<video controls autoplay src="${item.src}"></video>`;
+            }
+            lightboxModal.classList.add('active');
+        }
+
+        function closeLightbox() {
+            lightboxModal.classList.remove('active');
+            lightboxContent.innerHTML = ''; // Stop video
+        }
+
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) closeLightbox();
+        });
+
+        // Initialize
+        renderProjects();
+
+        // Reveal Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('reveal-visible');
+            });
+        }, { threshold: 0.1 });
+        
+        setTimeout(() => {
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }, 100); // Small delay to ensure elements are rendered
+    </script>
+</body>
+</html>

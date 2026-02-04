@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Mohamed Khald</title>
+    
+    <!-- SEO Optimization -->
+    <meta name="description" content="Mohamed Khald Al-Zain - Web Developer & Graphic Designer based in Alexandria. Blending code with creativity.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-body: #F3F5F4;          
+            --bg-card: #FFFFFF;    
+            --text-main: #111816;        
+            --text-secondary: #4a5550;   
+            --green-brand: #1A3C34;      
+            --radius-xl: 32px;
+            --radius-pill: 100px;
+            --shadow-card: 0 10px 40px rgba(0,0,0,0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --whatsapp: #25D366;
+            --linkedin: #0077B5;
+            --instagram: #E1306C;
+            --facebook: #1877F2;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        body.rtl-mode { 
+            font-family: 'Cairo', 'Manrope', sans-serif; 
+            direction: rtl; 
+        }
+
+        .en-font { font-family: 'Manrope', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+
+        /* HEADER */
+        header {
+            background-color: var(--green-brand);
+            padding: 40px 5% 120px; 
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .nav-container {
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            max-width: 1100px; 
+            margin: 0 auto;
+        }
+
+        .logo { font-weight: 900; font-size: clamp(20px, 4vw, 26px); color: #fff; cursor: pointer; }
+
+        .nav-btns { display: flex; gap: 10px; }
+        
+        .btn-ui {
+            background-color: rgba(255,255,255,0.1);
+            color: #fff; padding: 10px 18px; border-radius: var(--radius-pill);
+            font-weight: 700; font-size: 13px; border: 1px solid rgba(255,255,255,0.2);
+            cursor: pointer; transition: var(--transition);
+            white-space: nowrap;
+        }
+        .btn-ui:hover { background-color: #fff; color: var(--green-brand); }
+        .btn-lang { background-color: #fff; color: var(--green-brand); border: none; }
+
+        /* MAIN CONTAINER */
+        .container { 
+            width: 92%;
+            max-width: 1000px; 
+            margin: -70px auto 20px; 
+            position: relative;
+            z-index: 20;
+            flex: 1;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-xl);
+            padding: 90px 5% 50px;
+            box-shadow: var(--shadow-card);
+            border: 1px solid #fff;
+            text-align: center;
+        }
+
+        .profile-wrapper {
+            position: absolute;
+            top: -65px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 130px; 
+            height: 130px;
+            z-index: 30;
+        }
+
+        .profile-img-box {
+            width: 100%; 
+            height: 100%;
+            background: #fff;
+            border-radius: 50%;
+            padding: 6px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.1);
+            animation: floating 5s ease-in-out infinite;
+        }
+        .profile-img-box img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .name { font-size: clamp(24px, 5vw, 40px); font-weight: 800; color: var(--green-brand); margin-top: 15px; }
+        .role { font-size: clamp(14px, 3.5vw, 18px); color: var(--text-secondary); margin-bottom: 30px; display: block; font-weight: 600; }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+        .stat-item {
+            background: #f8fbf9;
+            padding: 18px 10px;
+            border-radius: 20px;
+            border: 1px solid #edf2f0;
+            transition: var(--transition);
+        }
+        .stat-item i { font-size: 18px; color: var(--green-brand); margin-bottom: 8px; display: block; }
+        .stat-item h4 { font-size: 10px; color: #999; text-transform: uppercase; margin-bottom: 4px; letter-spacing: 0.5px; }
+        .stat-item p { font-size: 13px; font-weight: 800; color: var(--green-brand); }
+
+        /* Section Box */
+        .section-box { text-align: left; margin-bottom: 40px; }
+        body.rtl-mode .section-box { text-align: right; }
+        
+        .title-line { font-size: 22px; font-weight: 800; color: var(--green-brand); margin-bottom: 20px; position: relative; display: inline-block; }
+        .title-line::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 40px; height: 4px; background: var(--green-brand); border-radius: 10px; }
+        body.rtl-mode .title-line::after { left: auto; right: 0; }
+
+        .p-content { font-size: clamp(15px, 3.5vw, 16px); line-height: 1.7; color: var(--text-secondary); margin-bottom: 15px; font-weight: 500; }
+
+        /* Roadmap */
+        .roadmap { position: relative; padding-left: 30px; border-left: 2px solid #eee; margin: 25px 0; }
+        body.rtl-mode .roadmap { padding-left: 0; padding-right: 30px; border-left: none; border-right: 2px solid #eee; }
+        
+        .roadmap-item { position: relative; margin-bottom: 30px; }
+        .roadmap-item:last-child { margin-bottom: 0; }
+        .roadmap-item::before {
+            content: ''; position: absolute; left: -37px; top: 6px; width: 12px; height: 12px;
+            border-radius: 50%; background: var(--green-brand); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--green-brand);
+        }
+        body.rtl-mode .roadmap-item::before { left: auto; right: -37px; }
+        .roadmap-item h3 { font-size: 18px; font-weight: 800; color: var(--green-brand); margin-bottom: 6px; }
+
+        /* Why Cards */
+        .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+        .why-card { padding: 20px; border-radius: 20px; background: #fff; border: 1.5px solid #f2f2f2; transition: var(--transition); text-align: inherit; }
+        .why-card:hover { border-color: var(--green-brand); transform: translateY(-3px); }
+        .why-card i { font-size: 22px; color: var(--green-brand); margin-bottom: 12px; display: block; }
+        .why-card h3 { font-size: 17px; font-weight: 800; margin-bottom: 8px; }
+        .why-card p { font-size: 13.5px; color: var(--text-secondary); }
+
+        /* CONTACT SECTION */
+        .contact-section { margin-top: 40px; padding-top: 30px; border-top: 1px solid #f0f0f0; width: 100%; }
+        .contact-section h2 { font-size: 22px; font-weight: 800; margin-bottom: 25px; color: var(--green-brand); }
+        
+        .contact-row { 
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .contact-pill {
+            background: #fff; 
+            border: 1.5px solid rgba(26, 60, 52, 0.08); 
+            padding: 10px 12px; 
+            border-radius: 16px;
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            gap: 10px; 
+            transition: var(--transition); 
+            cursor: pointer;
+        }
+        
+        .contact-pill i {
+            width: 28px; height: 28px; background: #f0f7f4; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center; color: var(--green-brand);
+            font-size: 14px;
+        }
+        .contact-pill span { font-weight: 700; font-size: 12px; color: var(--text-main); }
+
+        .pill-wa:hover { border-color: var(--whatsapp); } .pill-wa:hover i { background: var(--whatsapp); color: #fff; }
+        .pill-li:hover { border-color: var(--linkedin); } .pill-li:hover i { background: var(--linkedin); color: #fff; }
+        .pill-ig:hover { border-color: var(--instagram); } .pill-ig:hover i { background: var(--instagram); color: #fff; }
+        .pill-fb:hover { border-color: var(--facebook); } .pill-fb:hover i { background: var(--facebook); color: #fff; }
+
+        footer { text-align: center; padding: 20px 20px 30px; color: #999; font-size: 12px; }
+
+        /* MOBILE FIXES */
+        @media (max-width: 600px) {
+            header { padding-top: 25px; padding-bottom: 100px; }
+            .container { margin-top: -65px; margin-bottom: 15px; width: 92%; }
+            .card { padding: 75px 15px 35px; }
+            .profile-wrapper { width: 115px; height: 115px; top: -58px; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .why-grid { grid-template-columns: 1fr; }
+            .contact-row { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .contact-pill { padding: 8px; }
+            .title-line { font-size: 20px; }
+            footer { padding-top: 5px; }
+        }
+
+        /* Animation */
+        .reveal { opacity: 0; transform: translateY(20px); transition: 0.6s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo en-font" onclick="window.location.href='index'">𝐴𝑙-𝑍𝑎𝑖𝑛</div>
+            <div class="nav-btns">
+                <button class="btn-ui btn-lang" id="langToggle">AR</button>
+                <button class="btn-ui en-font" onclick="window.location.href='index'">HOME</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card reveal active">
+            <!-- Profile -->
+            <div class="profile-wrapper">
+                <div class="profile-img-box">
+                    <img src="mohamed.jpg" alt="Al-Zain" onerror="this.src='https://placehold.co/200x200/1A3C34/white?text=Al-Zain'">
+                </div>
+            </div>
+
+            <h1 class="name en-font" id="t-name">Mohamed Khald Al-Zain</h1>
+            <span class="role en-font" id="t-role">Web Developer & Graphic Designer</span>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <i class="fas fa-gift"></i>
+                    <h4 id="l-bday">BIRTHDAY</h4>
+                    <p id="v-bday">Jan 12, 2006</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-location-dot"></i>
+                    <h4 id="l-loc">LOCATION</h4>
+                    <p id="v-loc">Alexandria, Egypt</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-laptop-code"></i>
+                    <h4 id="l-exp">EXPERIENCE</h4>
+                    <p id="v-exp">+3 Years</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-circle-check"></i>
+                    <h4 id="l-status">AVAILABILITY</h4>
+                    <p id="v-status">Freelance</p>
+                </div>
+            </div>
+
+            <!-- Bio -->
+            <div class="section-box">
+                <h2 class="title-line" id="h-who">Who is Al-Zain ?</h2>
+                <p class="p-content" id="p-bio1">
+                    I am Mohamed Khald, known as <b>Al-Zain</b>, a web developer and graphic designer who blends the logic of programming with the creativity of design. 
+                </p>
+                <p class="p-content" id="p-bio2">
+                    My passion lies in building integrated digital experiences, from sketching visual identities to interactive websites.
+                </p>
+            </div>
+
+            <!-- What Al-Zain Offers -->
+            <div class="section-box">
+                <h2 class="title-line" id="h-offer">What Al-Zain Offers ?</h2>
+                <div class="roadmap">
+                    <div class="roadmap-item">
+                        <h3 id="s1-t">Web Developer</h3>
+                        <p class="p-content" id="s1-d">Building integrated software solutions for websites and stores.</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <h3 id="s2-t">Technical Solutions</h3>
+                        <p class="p-content" id="s2-d">Specialized services for account recovery and technical support.</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <h3 id="s3-t">Graphic Design</h3>
+                        <p class="p-content" id="s3-d">Creative designs that express your project's identity.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose -->
+            <div class="section-box">
+                <h2 class="title-line" id="h-why">Why Choose Al-Zain ?</h2>
+                <div class="why-grid">
+                    <div class="why-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3 id="w1-t">Efficiency & Speed</h3>
+                        <p id="w1-d">Optimized performance for a lightning-fast experience.</p>
+                    </div>
+                    <div class="why-card">
+                        <i class="fas fa-eye"></i>
+                        <h3 id="w2-t">Pixel Perfection</h3>
+                        <p id="w2-d">Balanced design where every pixel is crafted with care.</p>
+                    </div>
+                    <div class="why-card">
+                        <i class="fas fa-shield-halved"></i>
+                        <h3 id="w3-t">Trust & Security</h3>
+                        <p id="w3-d">Security is at the heart of every single line of code.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="contact-section">
+                <h2 id="h-contact">Connect with Al-Zain</h2>
+                <div class="contact-row en-font">
+                    <a href="https://wa.me/201204971416" class="" target="_blank">
+                        <i class=""></i>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mohamed-khald-09998b331" class="" target="_blank">
+                        <i class=""></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://www.instagram.com/mo7amedkhald" class="" target="_blank">
+                        <i class=""></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://www.facebook.com/mohamed.khald.781702" class="" target="_blank">
+                        <i class=""></i>
+                        <span>Facebook</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p id="f-copy">© 2026 Mohamed Khald - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script>
+        const langToggle = document.getElementById('langToggle');
+        const body = document.body;
+        const html = document.documentElement;
+
+        const langData = {
+            ar: {
+                lang: "AR",
+                btn: "EN",
+                name: "محمد خالد الزين",
+                role: "مطور ويب ومصمم جرافيك",
+                bdayL: "تاريخ الميلاد",
+                bdayV: "١٢ يناير ٢٠٠٦",
+                locL: "الموقع",
+                locV: "الإسكندرية، مصر",
+                expL: "الخبرة",
+                expV: "+٣ سنوات",
+                statL: "الحالة",
+                statV: "متاح للعمل",
+                hWho: "من هو الزين ؟",
+                p1: "أنا محمد خالد المعروف بإسم <b>الزين</b>، مطور ويب ومصمم جرافيك أجمع بين منطق البرمجة وإبداع التصميم. شغفي يكمن في بناء تجارب رقمية متكاملة، بدايةً من رسم الهوية البصرية والشعارات، وصولاً إلى تحويلها إلى مواقع إلكترونية تفاعلية وقوية برمجياً.",
+                p2: "من خلال مشاريعي تحت اسم Al-Zain، أسعى دائماً لتقديم حلول تقنية تجمع بين جمالية الواجهة وسلاسة الأداء.",
+                hOffer: "ماذا يقدم الزين؟",
+                s1t: "مطور ويب",
+                s1d: "حلول برمجية متكاملة للمواقع والمتاجر الإلكترونية، تركز على السرعة، القابلية للتوسع، وتجربة المستخدم السلسة.",
+                s2t: "حلول تقنية",
+                s2d: "خدمات متخصصة في استعادة الحسابات، حل المشكلات التقنية المعقدة بشكل آمن، وتقديم الدعم الرقمي المتقدم.",
+                s3t: "تصميم جرافيك",
+                s3d: "تصاميم إبداعية تعبر عن هوية مشروعك، الهويات البصرية الاحترافية، والقصص المصورة ذات التأثير القوي.",
+                hWhy: "لماذا تختار الزين ؟",
+                w1t: "الكفاءة والسرعة",
+                w1d: "أداء محسّن لضمان تجربة رقمية سريعة كالبرق.",
+                w2t: "دقة التفاصيل",
+                w2d: "تصميم متوازن حيث يتم الاهتمام بكل بكسل بعناية.",
+                w3t: "الثقة والأمان",
+                w3d: "الأمان هو جوهر كل سطر برمجي أقوم بكتابته.",
+                hContact: "تواصل مع الزين",
+                fCopy: "© 2026 Mohamed Khald - جميع الحقوق محفوظة"
+            },
+            en: {
+                lang: "EN",
+                btn: "AR",
+                name: "Mohamed Khald Al-Zain",
+                role: "Web Developer & Graphic Designer",
+                bdayL: "BIRTHDAY",
+                bdayV: "Jan 12, 2006",
+                locL: "LOCATION",
+                locV: "Alexandria, Egypt",
+                expL: "EXPERIENCE",
+                expV: "+3 Years",
+                statL: "AVAILABILITY",
+                statV: "Freelance",
+                hWho: "Who is Al-Zain ?",
+                p1: "I am Mohamed Khald, known as <b>Al-Zain</b>, a web developer and graphic designer who blends the logic of programming with the creativity of design.",
+                p2: "Through my projects under the Al-Zain name, I always strive to provide technical solutions that blend interface aesthetics with seamless performance.",
+                hOffer: "What Al-Zain Offers ?",
+                s1t: "Web Developer",
+                s1d: "Building integrated software solutions for websites and stores.",
+                s2t: "Technical Solutions",
+                s2d: "Specialized services for account recovery and technical support.",
+                s3t: "Graphic Design",
+                s3d: "Creative designs that express your project's identity.",
+                hWhy: "Why Choose Al-Zain ?",
+                w1t: "Efficiency & Speed",
+                w1d: "Optimized performance for a lightning-fast experience.",
+                w2t: "Pixel Perfection",
+                w2d: "Balanced design where every pixel is crafted with care.",
+                w3t: "Trust & Security",
+                w3d: "Security is at the heart of every single line of code.",
+                hContact: "Connect with Al-Zain",
+                fCopy: "© 2026 Mohamed Khald - جميع الحقوق محفوظة"
+            }
+        };
+
+        function switchLanguage(lang) {
+            const data = langData[lang];
+            html.lang = lang;
+            if(lang === 'ar') {
+                body.classList.add('rtl-mode');
+                html.dir = 'rtl';
+            } else {
+                body.classList.remove('rtl-mode');
+                html.dir = 'ltr';
+            }
+
+            langToggle.innerText = data.btn;
+            document.getElementById('t-name').innerText = data.name;
+            document.getElementById('t-role').innerText = data.role;
+            document.getElementById('l-bday').innerText = data.bdayL;
+            document.getElementById('v-bday').innerText = data.bdayV;
+            document.getElementById('l-loc').innerText = data.locL;
+            document.getElementById('v-loc').innerText = data.locV;
+            document.getElementById('l-exp').innerText = data.expL;
+            document.getElementById('v-exp').innerText = data.expV;
+            document.getElementById('l-status').innerText = data.statL;
+            document.getElementById('v-status').innerText = data.statV;
+            document.getElementById('h-who').innerText = data.hWho;
+            document.getElementById('p-bio1').innerHTML = data.p1;
+            document.getElementById('p-bio2').innerHTML = data.p2;
+            document.getElementById('h-offer').innerText = data.hOffer;
+            document.getElementById('s1-t').innerText = data.s1t;
+            document.getElementById('s1-d').innerText = data.s1d;
+            document.getElementById('s2-t').innerText = data.s2t;
+            document.getElementById('s2-d').innerText = data.s2d;
+            document.getElementById('s3-t').innerText = data.s3t;
+            document.getElementById('s3-d').innerText = data.s3d;
+            document.getElementById('h-why').innerText = data.hWhy;
+            document.getElementById('w1-t').innerText = data.w1t;
+            document.getElementById('w1-d').innerText = data.w1d;
+            document.getElementById('w2-t').innerText = data.w2t;
+            document.getElementById('w2-d').innerText = data.w2d;
+            document.getElementById('w3-t').innerText = data.w3t;
+            document.getElementById('w3-d').innerText = data.w3d;
+            document.getElementById('h-contact').innerText = data.hContact;
+            document.getElementById('f-copy').innerText = data.fCopy;
+        }
+
+        langToggle.addEventListener('click', () => {
+            const next = html.lang === 'en' ? 'ar' : 'en';
+            switchLanguage(next);
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        window.onload = () => switchLanguage('en');
+    </script>
+</body>
+</html>

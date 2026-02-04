@@ -57,7 +57,7 @@
         /* HEADER */
         header {
             background-color: var(--green-brand);
-            padding: 40px 5% 120px; 
+            padding: 60px 5% 160px; 
             width: 100%;
             position: relative;
             z-index: 10;
@@ -89,7 +89,7 @@
         .container { 
             width: 92%;
             max-width: 1000px; 
-            margin: -70px auto 20px; 
+            margin: -80px auto 40px; 
             position: relative;
             z-index: 20;
             flex: 1;
@@ -188,51 +188,52 @@
         
         .contact-row { 
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
             max-width: 800px;
             margin: 0 auto;
         }
         
+        /* إزالة المستطيل هنا */
         .contact-pill {
-            background: #fff; 
-            border: 1.5px solid rgba(26, 60, 52, 0.08); 
-            padding: 10px 12px; 
-            border-radius: 16px;
+            background: transparent; 
+            border: none; 
+            padding: 10px; 
             display: flex; 
             align-items: center; 
             justify-content: center;
-            gap: 10px; 
             transition: var(--transition); 
             cursor: pointer;
         }
         
-        .contact-pill i {
-            width: 28px; height: 28px; background: #f0f7f4; border-radius: 8px;
-            display: flex; align-items: center; justify-content: center; color: var(--green-brand);
-            font-size: 14px;
+        .contact-pill span { 
+            font-weight: 800; 
+            font-size: 15px; 
+            color: var(--text-main);
+            transition: var(--transition);
         }
-        .contact-pill span { font-weight: 700; font-size: 12px; color: var(--text-main); }
 
-        .pill-wa:hover { border-color: var(--whatsapp); } .pill-wa:hover i { background: var(--whatsapp); color: #fff; }
-        .pill-li:hover { border-color: var(--linkedin); } .pill-li:hover i { background: var(--linkedin); color: #fff; }
-        .pill-ig:hover { border-color: var(--instagram); } .pill-ig:hover i { background: var(--instagram); color: #fff; }
-        .pill-fb:hover { border-color: var(--facebook); } .pill-fb:hover i { background: var(--facebook); color: #fff; }
+        /* تأثير اللون فقط عند المرور */
+        .pill-wa:hover span { color: var(--whatsapp); }
+        .pill-li:hover span { color: var(--linkedin); }
+        .pill-ig:hover span { color: var(--instagram); }
+        .pill-fb:hover span { color: var(--facebook); }
 
-        footer { text-align: center; padding: 20px 20px 30px; color: #999; font-size: 12px; }
+        footer { text-align: center; padding: 30px 20px; color: #999; font-size: 12px; }
 
         /* MOBILE FIXES */
         @media (max-width: 600px) {
-            header { padding-top: 25px; padding-bottom: 100px; }
-            .container { margin-top: -65px; margin-bottom: 15px; width: 92%; }
+            header { padding-top: 40px; padding-bottom: 120px; }
+            .container { margin-top: -75px; margin-bottom: 20px; width: 92%; }
             .card { padding: 75px 15px 35px; }
             .profile-wrapper { width: 115px; height: 115px; top: -58px; }
             .stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
             .why-grid { grid-template-columns: 1fr; }
-            .contact-row { grid-template-columns: 1fr 1fr; gap: 8px; }
-            .contact-pill { padding: 8px; }
+            .contact-row { grid-template-columns: 1fr 1fr; gap: 5px; }
+            .contact-pill { padding: 8px 5px; }
+            .contact-pill span { font-size: 13px; }
             .title-line { font-size: 20px; }
-            footer { padding-top: 5px; }
+            footer { padding-top: 10px; }
         }
 
         /* Animation */
@@ -344,20 +345,16 @@
             <div class="contact-section">
                 <h2 id="h-contact">Connect with Al-Zain</h2>
                 <div class="contact-row en-font">
-                    <a href="https://wa.me/201204971416" class="" target="_blank">
-                        <i class=""></i>
+                    <a href="https://wa.me/201204971416" class="contact-pill pill-wa" target="_blank">
                         <span>WhatsApp</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/mohamed-khald-09998b331" class="" target="_blank">
-                        <i class=""></i>
+                    <a href="https://www.linkedin.com/in/mohamed-khald-09998b331" class="contact-pill pill-li" target="_blank">
                         <span>LinkedIn</span>
                     </a>
-                    <a href="https://www.instagram.com/mo7amedkhald" class="" target="_blank">
-                        <i class=""></i>
+                    <a href="https://www.instagram.com/mo7amedkhald" class="contact-pill pill-ig" target="_blank">
                         <span>Instagram</span>
                     </a>
-                    <a href="https://www.facebook.com/mohamed.khald.781702" class="" target="_blank">
-                        <i class=""></i>
+                    <a href="https://www.facebook.com/mohamed.khald.781702" class="contact-pill pill-fb" target="_blank">
                         <span>Facebook</span>
                     </a>
                 </div>

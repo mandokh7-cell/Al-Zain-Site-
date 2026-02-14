@@ -18,6 +18,57 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+      /* الألوان والأنيميشن الخاصة برمضان */
+:root {
+    --gold-ramadan: #D4AF37;
+    --gold-light: #F9E29C;
+}
+
+/* حركة الفانوس الطائر */
+@keyframes floatFanous {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+/* حركة نبض كلمة رمضان كريم */
+@keyframes pulseRamadan {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* ستايل الفانوس */
+.floating-fanous {
+    position: absolute;
+    width: 40px;
+    z-index: 10;
+    pointer-events: none;
+    filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.4));
+    animation: floatFanous 4s ease-in-out infinite;
+}
+
+/* ستايل بادج رمضان كريم */
+.ramadan-badge {
+    background: linear-gradient(135deg, var(--gold-ramadan), var(--gold-light));
+    color: #1A3C34;
+    padding: 6px 18px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+    animation: pulseRamadan 2s infinite;
+    cursor: default;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.ramadan-badge i {
+    font-size: 14px;
+}
+
         /* -----------------------------------------------------------
            VARIABLES (LIGHT MODE THEME)
            ----------------------------------------------------------- */
@@ -603,6 +654,15 @@
     </style>
 </head>
 <body>
+<!-- الفانوس الأول (جهة اليمين) -->
+<svg class="floating-fanous" style="top: 10%; right: 5%;" viewBox="0 0 512 512" fill="#D4AF37">
+    <path d="M256 0c-17.7 0-32 14.3-32 32v16.1c-43.1 11.2-76.4 44.5-87.6 87.6H112c-17.7 0-32 14.3-32 32s14.3 32 32 32h16v64H112c-17.7 0-32 14.3-32 32s14.3 32 32 32h24.4c11.2 43.1 44.5 76.4 87.6 87.6V480c0 17.7 14.3 32 32 32s32-14.3 32-32v-16.1c43.1-11.2 76.4-44.5 87.6-87.6H400c17.7 0 32-14.3 32-32s-14.3-32-32-32h-16v-64h16c17.7 0 32-14.3 32-32s-14.3-32-32-32h-24.4c-11.2-43.1-44.5-76.4-87.6-87.6V32c0-17.7-14.3-32-32-32zM192 224h128v64H192v-64z"/>
+</svg>
+
+<!-- الفانوس الثاني (جهة اليسار - بأنيميشن متأخر قليلاً) -->
+<svg class="floating-fanous" style="top: 20%; left: 5%; animation-delay: 1.5s;" viewBox="0 0 512 512" fill="#D4AF37">
+    <path d="M256 0c-17.7 0-32 14.3-32 32v16.1c-43.1 11.2-76.4 44.5-87.6 87.6H112c-17.7 0-32 14.3-32 32s14.3 32 32 32h16v64H112c-17.7 0-32 14.3-32 32s14.3 32 32 32h24.4c11.2 43.1 44.5 76.4 87.6 87.6V480c0 17.7 14.3 32 32 32s32-14.3 32-32v-16.1c43.1-11.2 76.4-44.5 87.6-87.6H400c17.7 0 32-14.3 32-32s-14.3-32-32-32h-16v-64h16c17.7 0 32-14.3 32-32s-14.3-32-32-32h-24.4c-11.2-43.1-44.5-76.4-87.6-87.6V32c0-17.7-14.3-32-32-32zM192 224h128v64H192v-64z"/>
+</svg>
 
     <!-- Header -->
     <header>
@@ -616,6 +676,9 @@
             <div class="hero-img-container">
                 <img src="mohamed.jpg" onerror="this.src='https://placehold.co/200x200/ddd/1A3C34?text=MK'" alt="Al-Zain">
             </div>
+<div class="ramadan-badge en-font">
+    <i class="fas fa-moon"></i> Ramadan Kareem
+</div>
 
             <h1>
                 <span class="en-font">Mohamed Khald</span>
